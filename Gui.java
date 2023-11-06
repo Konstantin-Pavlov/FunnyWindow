@@ -1,10 +1,8 @@
 import java.awt.BorderLayout;
-import java.awt.FlowLayout; //верстка элементов в окне
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener; //прослушивает события - нажатие мышкой и тд
 import java.awt.event.ActionEvent; //реагирует на события которые прослушивает ActionListener (нажатие на конпку и тд)
-import java.util.Objects;
 import javax.swing.JFrame; //само окно
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -13,12 +11,11 @@ import javax.swing.JPanel;
 
 public class Gui extends JFrame {
 
-    private JButton RegBut;
-    private JButton CusBut;
+    private JButton leftButton;
+    private JButton rightButton;
 
     public Gui() {
         super("самая полезная в мире программа");
-        // setLayout(new FlowLayout());
 
         // Create a JPanel for the center area
         JPanel centerPanel = new JPanel(new GridBagLayout());
@@ -43,21 +40,21 @@ public class Gui extends JFrame {
         label.setVerticalAlignment(JButton.CENTER);
 
         // Create two JButton objects
-        RegBut = new JButton("Выход");
-        CusBut = new JButton("Тоже выход");
+        leftButton = new JButton("Выход");
+        rightButton = new JButton("Тоже выход");
 
-        processingClass processing = new processingClass();
+        ProcessingClass processing = new ProcessingClass();
 
         // Add an ActionListener to the button
-        RegBut.addActionListener(processing);
-        CusBut.addActionListener(processing);
+        leftButton.addActionListener(processing);
+        rightButton.addActionListener(processing);
 
         // Add the label to the center panel
         centerPanel.add(label, constraints);
 
         // Add the buttons to the bottom panel
-        bottomPanel.add(RegBut, BorderLayout.WEST);
-        bottomPanel.add(CusBut, BorderLayout.EAST);
+        bottomPanel.add(leftButton, BorderLayout.WEST);
+        bottomPanel.add(rightButton, BorderLayout.EAST);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
@@ -70,7 +67,7 @@ public class Gui extends JFrame {
 
     }
 
-    private class processingClass implements ActionListener {
+    private class ProcessingClass implements ActionListener {
         public void actionPerformed(ActionEvent event) {
 
             // Display a confirmation dialog
