@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Gui gui = new Gui();
 
+        //gui.setLayout(new java.awt.FlowLayout());
+
         // get screen size
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

@@ -1,18 +1,26 @@
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener; //прослушивает события - нажатие мышкой и тд
+import java.util.Timer;
 import java.awt.event.ActionEvent; //реагирует на события которые прослушивает ActionListener (нажатие на конпку и тд)
 import javax.swing.JFrame; //само окно
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane; //всплывающее окно
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Gui extends JFrame {
 
     private JButton leftButton;
     private JButton rightButton;
+
+    private JTextField timeField;
+    private JButton startButton;
+    private Timer timer;
+    private int remainingTime;
 
     public Gui() {
         super("самая полезная в мире программа");
@@ -22,6 +30,12 @@ public class Gui extends JFrame {
 
         // Create a JPanel for the bottom area
         JPanel bottomPanel = new JPanel(new BorderLayout());
+
+        JPanel timerArea = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        //JLabel timer = new JLabel("timer");
+        timeField = new JTextField(10);
+        startButton = new JButton("Старт");
+        
 
         // Create a JLabel object
         JLabel label = new JLabel("<html><center>Внимание!<br> \r\n" + //
@@ -36,8 +50,14 @@ public class Gui extends JFrame {
         constraints.weighty = 1;
         constraints.fill = GridBagConstraints.CENTER;
 
-        label.setHorizontalAlignment(JButton.CENTER);
-        label.setVerticalAlignment(JButton.CENTER);
+        //label.setHorizontalAlignment();
+        //label.setVerticalAlignment(JButton.CENTER);
+
+        //timer.setHorizontalAlignment(JButton.CENTER);
+        // timer.setVerticalAlignment(JButton.CENTER);
+
+        startButton.setHorizontalAlignment(JButton.EAST);
+        timeField.setHorizontalAlignment(JButton.CENTER);
 
         // Create two JButton objects
         leftButton = new JButton("Выход");
@@ -52,12 +72,17 @@ public class Gui extends JFrame {
         // Add the label to the center panel
         centerPanel.add(label, constraints);
 
+        timerArea.add(startButton);
+        timerArea.add(timeField);
+
         // Add the buttons to the bottom panel
         bottomPanel.add(leftButton, BorderLayout.WEST);
         bottomPanel.add(rightButton, BorderLayout.EAST);
 
         // Set the layout manager for the frame
         setLayout(new BorderLayout());
+
+        add(timerArea, BorderLayout.NORTH);
 
         // Add the center panel to the center area of the frame
         add(centerPanel, BorderLayout.CENTER);
