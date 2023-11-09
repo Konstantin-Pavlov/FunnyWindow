@@ -56,8 +56,8 @@ public class Gui extends JFrame {
         //timer.setHorizontalAlignment(JButton.CENTER);
         // timer.setVerticalAlignment(JButton.CENTER);
 
-        startButton.setHorizontalAlignment(JButton.EAST);
-        timeField.setHorizontalAlignment(JButton.CENTER);
+        // startButton.setHorizontalAlignment(JButton.EAST);
+        // timeField.setHorizontalAlignment(JButton.CENTER);
 
         // Create two JButton objects
         leftButton = new JButton("Выход");
