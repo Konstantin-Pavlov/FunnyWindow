@@ -31,6 +31,8 @@ public class Gui extends JFrame {
         // Create a JPanel for the bottom area
         JPanel bottomPanel = new JPanel(new BorderLayout());
 
+
+        //попробовать setBounds
         JPanel timerArea = new JPanel(new FlowLayout(FlowLayout.CENTER));
         //JLabel timer = new JLabel("timer");
         timeField = new JTextField(10);
